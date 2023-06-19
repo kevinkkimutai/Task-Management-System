@@ -26,16 +26,14 @@ class TasksController < ApplicationController
  #create a new task
  def create
     task = Task.create(task_params)
-
-    #check whether the task is valid
+  
     if task.valid?
-        #add the task to the db if its valid
-        render json: task, status: :accepted
+      render json: task, status: :accepted
     else
-        #throw an error
-        render json: { error: "An error occured" }, status: :unprocessable_entity
+      render json: { error: task.errors.full_messages }, status: :unprocessable_entity
     end
-   end
+  end
+  
 
    #PUT/PATCH /task/{:id}
    def update
@@ -63,7 +61,7 @@ end
 
 private
 def task_params
-    params.permit(:name, :description, :due_date, :user_id )
+    params.permit(:name, :description, :status, :due_date, :user_id )
 
 end
    

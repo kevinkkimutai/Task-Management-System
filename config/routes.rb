@@ -3,6 +3,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+    # reset password
+    post "reset_password", to: "users#reset_password"
+    put "update_password/:reset_password_token", to: "users#update_password"
+    put "reset_password/:reset_password_token", to: "users#update_password"
+  
+    # user login/register
+    post "/users/login", to: "authentication#login"
+    post "/users/register", to: "users#create"
 
   # get  all tasks
     get '/task', to: 'tasks#index'
