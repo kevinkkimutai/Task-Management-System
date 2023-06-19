@@ -12,7 +12,7 @@ class TasksController < ApplicationController
 # get a single task from database by id
    def show
        #check if the task exits
-   task = Task.find_by(id:param[:id])
+   task = Task.find_by(id:params[:id])
    
    if task
        render json: task, status: :ok
@@ -37,23 +37,24 @@ class TasksController < ApplicationController
 
    #PUT/PATCH /task/{:id}
    def update
-    task = Task.find_by(id.params[:id])
-    #if present
+    task = Task.find_by(id: params[:id])
+  
     if task
-        task.update(task_params)
-        render json: task, status: :accepted
+      task.update(task_params)
+      render json: task, status: :accepted
     else
-        render json: { error: 'Task not found' }, status: :not_found
+      render json: { error: 'Task not found' }, status: :not_found
     end
   end
+  
 
   #DELETE /task/{:id}
   def destroy
-    task = Task.find_by(id.params[:id])
+    task = Task.find_by(id: params[:id])
     #check iff task exists
     if task
         task.destroy
-        head :no_content
+        render json: { message: 'Task successfully destroyed' }, status: :ok
     else
        render json: { error: "Task not found" }, status: :not_found
     end
