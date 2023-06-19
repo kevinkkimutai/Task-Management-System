@@ -4,10 +4,10 @@ one:
   name: MyString
   description: MyString
   due_date: MyString
-  user_id: one
+  user: one
 
 two:
   name: MyString
   description: MyString
   due_date: MyString
-  user_id: two
+  user: two
