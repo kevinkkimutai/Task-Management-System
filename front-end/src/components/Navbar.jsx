@@ -13,8 +13,8 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
           <li className="nav-item"><a className="nav-link" href="/">Home</a></li>
-          <li className="nav-item"><a className="nav-link" href="/design">Designs</a></li>
-          <li className="nav-item"><a className="nav-link" href="/add">Add Design</a></li>
+          <li className="nav-item"><a className="nav-link" href="/task">Tasks</a></li>
+          <li className="nav-item"><a className="nav-link" href="/add">Add Tasks</a></li>
           <li className="nav-item ms-2">
           <div className="logins mt-1">
             <a href="/login">

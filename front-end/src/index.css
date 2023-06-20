@@ -23,16 +23,38 @@ code {
   .container {
     height: 800px;
     padding-top: 6rem;
-
+  }
+  .col-sm {
+    width: auto;
+  }
+  .heading {
+    width: auto;
+  }
+  .card {
+width: auto;
   }
 .ul {
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
 }
+
+.card {
+  width: auto;
+}
+.card-subtitle {
+  text-align: start;
+}
 .row {
   text-align: center;
   justify-content: center;
   align-items: center;
-  height: 500px;
+  
+}
+.heading {
+  background-color: rgba(115, 112, 112, 0.254);
+  border-radius: 5px;
+  color: rgb(23, 15, 247);
+  font-family: "Permanent Marker", cursive;
+  font-style: italic;
 }
