@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     # user login/register
     post "/users/login", to: "authentication#login"
     post "/users/register", to: "users#create"
+    get '/users/me', to: 'users#me'
 
   # get  all tasks
     get '/task', to: 'tasks#index'
