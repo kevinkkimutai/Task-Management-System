@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Navbar() {
+function Navbar({token, logout, user}) {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
     <div className="container-fluid ">
@@ -16,14 +17,30 @@ function Navbar() {
           <li className="nav-item"><a className="nav-link" href="/task">Tasks</a></li>
           <li className="nav-item"><a className="nav-link" href="/add">AddTasks</a></li>
           <li className="nav-item ms-2">
-          <div className="logins mt-1">
-            <a href="/login">
-        <button className="btn btn-outline-primary btn-sm" type="submit">Login</button>
-        </a>
-        <a href="/signup">
-        <button className="btn btn-outline-success btn-sm ms-1" type="submit">SignUp</button>
-        </a>
-      </div>
+      
+          <div className="d-flex">
+        {token ?(
+        <>
+         <ul className="nav nav-pills nav-fill">
+  <li className="nav-item">
+  {user && (
+    <a className="nav-link me-3" href="#/"> {user} </a>
+  )}
+  </li>
+  <li className="nav-item pt-1">
+      <button className="btn btn-outline-danger btn-sm"  onClick={logout}>Logout</button>
+      </li>
+      </ul>
+        </>
+        ) : (
+<>
+  <div className="nav-item pt-1">
+  <Link to="/login"><button className="btn btn-outline-primary btn-sm " href="login" type="submit">Login</button></Link> 
+  <Link to="/register"><button className="btn btn-outline-success btn-sm ms-2" href="register" type="submit">Signup</button></Link> 
+  </div>
+</>
+        )}
+        </div>
             </li>
         </ul>
         

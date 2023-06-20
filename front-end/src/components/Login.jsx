@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/auth.css'
+import axios from 'axios';
 
-function Login() {
+function Login({setToken}) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+  
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      try {
+        const response = await axios.post(`http://localhost:3000/users/login`, {
+          email,
+          password,
+        });
+        localStorage.setItem("token", response.data.token);
+        setToken(response.data.token);
+        
+      } catch (error) {
+        console.error(error);
+      }
+    };
   return (
     <div className="section">
     <div className="container pt-5">
@@ -13,24 +31,43 @@ function Login() {
                 <div className="card-front">
                   <div className="center-wrap">
                     <div className="section text-center">
-                      <h4 className="mb-2 pb-3 loghead">Log In</h4>
-                      <div className="form-group">
-                        <input type="email" className="form-style" placeholder="Email" />
-                        <i className="input-icon uil uil-at"></i>
-                      </div>
-                      <div className="form-group mt-2">
-                        <input
-                          type="password"
-                          className="form-style"
-                          placeholder="Password"
-                        />
-                        <i className="input-icon uil uil-lock-alt"></i>
-                      </div>
-                      <div className="btn button btn-primary mt-4">Login</div>
-                      <p className="mb-0 mt-4 text-center">
-                        <a href="https://www.web-leb.com/code" className="link"
-                          >Forgot your password?</a>
-                      </p>
+                    <form
+                        onSubmit={handleSubmit}
+                        className="section text-center"
+                      >
+                        <h4 className="mb-4 pb-3">Log In</h4>
+                        <div className="form-group">
+                          <input
+                            type="email"
+                            className="form-style"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                          />
+                          <i className="input-icon bi bi-person-fill-add"></i>
+                        </div>
+                        <div className="form-group mt-2">
+                          <input
+                            type="password"
+                            className="form-style"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                          />
+                          <i className=" input-icon bi bi-key-fill"></i>
+                        </div>
+                        <button
+                          type="submit"
+                          className="btn1 mt-4 btn btn-outline-info"
+                        >
+                          Login
+                        </button>
+                        <p className="mb-0 mt-4 text-center">
+                          <a href="/resetpassword" className="link">
+                            Forgot your password?
+                          </a>
+                        </p>
+                      </form>
                     </div>
                   </div>
                 </div>

@@ -1,8 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import task from '../assets/task.png'
 import '../css/add.css'
+import axios from 'axios';
 
-function Addtask() {
+function Addtask({token, user}) {
+  const [tasks, setTasks] = useState([]);
+  const [name, setName] = useState('');
+  const [status, setStatus] = useState('');
+  const [due_date, setDue_date] = useState('');
+  const [description, setDescription] = useState('');
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(
+        'http://localhost:3000/task',
+        {
+          name: name,
+          description: description,
+          due_date: due_date,
+          status: 0,
+          user_id: user.id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setTasks([...tasks, response.data]);
+      setName('');
+      setDescription('');
+      setDue_date('');
+      setStatus('INCOMPLETE');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className='container pt-3 text-center'>
       <div className="row justify-content-evenly">
@@ -15,18 +51,24 @@ function Addtask() {
       <div className="col-5">
       <div className="login-box">
       <div className="form">
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleSubmit}>
         <div className="col name">
-    <label for="title" className="form-label text-start">Title:</label>
-    <input type="text" className="form-control" id="title" placeholder='Task Title'/>
+    <label htmlFor="name" className="form-label text-start">Name:</label>
+    <input type="text" className="form-control" id="name" 
+    value={name} onChange={(e) => setName(e.target.value)} 
+     placeholder='Task Name'/>
   </div>
   <div className="col name">
-    <label for="title" className="form-label text-start">Due-Date:</label>
-    <input type="date" className="form-control" id="title"/>
+    <label htmlFor="name" className="form-label text-start">Due-Date:</label>
+    <input type="date" className="form-control"
+    value={due_date} onChange={(e) => setDue_date(e.target.value)}  
+     id="name"/>
   </div>
-          <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder='Description'></textarea>
+          <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
+          value={description} onChange={(e) => setDescription(e.target.value)} 
+           placeholder='Description'></textarea>
           <div className='pt-2'>
-          <button type="button" className="btn btn-outline-primary btn-sm">ADD TASK</button>
+          <button type="submit" className="btn btn-outline-primary btn-sm">ADD TASK</button>
           </div>
           
         </form>
