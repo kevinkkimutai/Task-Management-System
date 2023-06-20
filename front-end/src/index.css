@@ -78,3 +78,9 @@ width: auto;
   background-color: rgba(92, 91, 91, 0.303);
   /* Additional styles for the done card */
 }
+h2 {
+  font-family: "Permanent Marker", cursive;
+  font-style: italic;
+  text-decoration: underline;
+  color: rgb(23, 15, 247);
+}
