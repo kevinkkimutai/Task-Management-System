@@ -3,6 +3,9 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Home from "./components/Home";
 import Tasks from "./components/Tasks";
+import Addtask from "./components/Addtask";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -13,6 +16,9 @@ function App() {
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/task" element={<Tasks />} />
+          <Route path="/add" element={<Addtask />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
         </Routes>
   
         {/* <Footer /> */}

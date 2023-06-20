@@ -37,6 +37,11 @@ width: auto;
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
+.complete-text {
+  top: 26%;
+  left: 7%;
+  transform: translate(-50%, -50%);
+}
 }
 
 .card {
@@ -57,4 +62,19 @@ width: auto;
   color: rgb(23, 15, 247);
   font-family: "Permanent Marker", cursive;
   font-style: italic;
+}
+.complete-text {
+  color: red;
+  position: absolute;
+  font-family: "Permanent Marker", cursive;
+  font-style: italic;
+  text-transform: uppercase;
+  top: 26%;
+  left: 1%;
+  font-size: 38px;
+  transform: translate(-50%, -50%);
+}
+.done-card {
+  background-color: rgba(92, 91, 91, 0.303);
+  /* Additional styles for the done card */
 }
