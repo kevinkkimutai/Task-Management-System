@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get '/users/me', to: 'users#me'
 
   # get  all tasks
-    get '/task', to: 'tasks#index'
+    get '/users/:user_id/tasks', to: 'tasks#index'
     post '/task', to: 'tasks#create'
     get '/task/:id', to: 'tasks#show'
     put '/task/:id', to: 'tasks#update'

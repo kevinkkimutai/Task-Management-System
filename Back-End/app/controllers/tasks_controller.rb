@@ -2,10 +2,12 @@ class TasksController < ApplicationController
 
 #get /tasks 
 # get a list of all tasks from database
-    def index
-        tasks = Task.all;
-        render json: tasks, status: :ok
-    end
+def index
+  user =@current_user
+  tasks = user.tasks
+  render json: tasks
+end
+
 
 
 #GET /tasks/:id
