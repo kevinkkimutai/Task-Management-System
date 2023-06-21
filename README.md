@@ -3,6 +3,12 @@
 ## Task Management app
 This is a simple web application that allows users to manage their tasks effectively. With this application, users can create new tasks, mark them as complete, and delete tasks when they are no longer needed.
 
+## Links
+### Front-End Link:
+[https://task-management-system-psi.vercel.app/](https://task-management-system-psi.vercel.app/)
+
+### Back-end link:
+[https://task-management-wm42.onrender.com](https://task-management-wm42.onrender.com)
 ## Sample login
 ```
 Email: kelvin@gmail.com
@@ -37,10 +43,8 @@ This ERD is here to demonstrate the relationship between the model entities.
 
 **`Back-End:`** Ruby on Rails
 
-**`Backendlink:`**
-```
-https://task-management-wm42.onrender.com
-```
+**`Backendlink:`** [https://task-management-wm42.onrender.com](https://task-management-wm42.onrender.com)
+
 
 **`Database:`** Sqlite3
 
