@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Tasks({token}) {
+function Tasks({token, user}) {
   const [tasks, setTasks] = useState([]);
-  const fetchBooks = async () => {
+  const fetchTasks = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/task`, {
+      const response = await axios.get(`http://localhost:3000/users/${user.id}/tasks`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      (setTasks(response.data));
-   
+      setTasks(response.data);
     } catch (error) {
       console.error(error);
     }
   };
-
+  
   useEffect(() => {
-    fetchBooks();
+    fetchTasks();
   }, []);
 
+  
   const handleDoneClick = () => {
     // Perform any other actions you need when the card is marked as done
   };

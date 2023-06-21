@@ -20,17 +20,16 @@ function App() {
           Authorization: `Bearer ${token}`,
         },
       });
-      (setUser(response.data));
-     
+      setUser(response.data);
     } catch (error) {
       console.error(error);
     }
   };
-
+  
   useEffect(() => {
     fetchUser();
   }, []);
-
+  
  
   const logout = () => {
     localStorage.removeItem('token');
@@ -46,7 +45,7 @@ function App() {
    
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/task" element={token ? <Tasks token={token} /> : <Login setToken={setToken} />} />
+          <Route path="/task" element={token ? <Tasks token={token} user={user} /> : <Login setToken={setToken} />} />
           <Route path="/add" element={token ? <Addtask token={token} user={user}/> : <Login setToken={setToken} />} />
           <Route path="/login" element={!token ? <Login setToken={setToken} /> : <Home token={token} />} />
         <Route path="/register" element={!token ? <Register setToken={setToken} /> : <Home token={token} />} />
