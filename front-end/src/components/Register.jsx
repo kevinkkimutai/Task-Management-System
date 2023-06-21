@@ -39,7 +39,7 @@ function Register({setToken}) {
                           <input type="text" className="form-style"
                           value={username}
                           onChange={(e) => setUsername(e.target.value)}
-                           placeholder="Username" />
+                           placeholder="Username" required/>
                           <i className="input-icon uil uil-at"></i>
                         </div>
 
@@ -48,7 +48,7 @@ function Register({setToken}) {
                           <input type="email" className="form-style" 
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                           placeholder="Email" />
+                           placeholder="Email" required />
                           <i className="input-icon uil uil-at"></i>
                         </div>
 
@@ -59,6 +59,7 @@ function Register({setToken}) {
                           onChange={(e) => setPassword(e.target.value)}
                           className="form-style"
                           placeholder="Password"
+                          required
                         />
                         <i className="input-icon uil uil-lock-alt"></i>
                       </div>

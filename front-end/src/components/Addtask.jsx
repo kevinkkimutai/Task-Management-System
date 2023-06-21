@@ -84,6 +84,7 @@ function Addtask({token, user}) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Task Name"
+                    required
                   />
                 </div>
                 <div className="col name">
@@ -96,6 +97,7 @@ function Addtask({token, user}) {
                     value={due_date}
                     onChange={(e) => setDue_date(e.target.value)}
                     id="name"
+                    required
                   />
                 </div>
                 <textarea
@@ -105,6 +107,7 @@ function Addtask({token, user}) {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Description"
+                  required
                 ></textarea>
                 <div className="pt-2">
                   <button
