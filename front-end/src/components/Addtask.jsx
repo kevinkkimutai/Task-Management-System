@@ -3,14 +3,17 @@ import task from '../assets/task.png'
 import '../css/add.css'
 import axios from 'axios';
 
+
 function Addtask({token, user}) {
   const [tasks, setTasks] = useState([]);
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
   const [due_date, setDue_date] = useState('');
   const [description, setDescription] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-
+// Form submission handler
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -34,10 +37,15 @@ function Addtask({token, user}) {
       setDescription('');
       setDue_date('');
       setStatus('INCOMPLETE');
+      setIsSuccess(true);
+      setIsError(false);
     } catch (error) {
       console.error(error);
+      setIsSuccess(false);
+      setIsError(true);
     }
   };
+  
 
   return (
     <div className='container pt-3 text-center'>
@@ -50,7 +58,20 @@ function Addtask({token, user}) {
     </div>
       <div className="col-5">
       <div className="login-box">
+      
       <div className="form">
+  {/* error section */}
+      {isSuccess && (
+                <div className=' mb-2 success' role='alert'>
+                  <u>Task added successfully.</u>
+                </div>
+              )}
+              {isError && (
+                <div className='alert alert-danger mt-3' role='alert'>
+                  An error occurred while adding the task.
+                </div>
+              )}
+  {/* create tasks form */}
         <form className="login-form" onSubmit={handleSubmit}>
         <div className="col name">
     <label htmlFor="name" className="form-label text-start">Name:</label>
@@ -72,6 +93,7 @@ function Addtask({token, user}) {
           </div>
           
         </form>
+
       </div>
   </div>
     </div>

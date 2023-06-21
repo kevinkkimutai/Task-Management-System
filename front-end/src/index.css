@@ -90,6 +90,7 @@ h2 {
   float: none;
   height: 560px;
   border-radius: 5px;
+  overflow: scroll;
 }
 .detail {
   background-color: rgba(115, 112, 112, 0.254);
@@ -101,7 +102,7 @@ h2 {
 }
 .done-list {
   text-decoration: line-through;
-  color: brown;
+  color: rgb(255, 0, 0);
 }
 .mainlist {
   height: 500px;
@@ -112,9 +113,33 @@ h2 {
   height: 38px;
   width: 63%;
   z-index: 1;
-  background-color: rgb(115, 112, 112);
+  background-color: rgb(155, 153, 153);
 }
 .sidehead {
-  background-color: rgb(115, 112, 112);
+  background-color: rgb(147, 146, 146);
+position: relative;
   
 }
+.past {
+  background-color: rgba(255, 115, 115, 0.652);
+}
+.description {
+  overflow: scroll;
+}
+.trash {
+  color: red;
+  border: none;
+  outline: none;
+  float: right;
+
+}
+.success {
+  height: 23px;
+color: rgb(51, 194, 7);
+  border-radius: 5px;
+
+}
+/* .list {
+  overflow: scroll;
+  height: 200px;
+} */
