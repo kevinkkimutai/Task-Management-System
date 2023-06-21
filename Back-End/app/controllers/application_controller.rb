@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
       header = header.split(' ').last if header
   
       begin
-        decoded = JWT.decode(header, Rails.application.secrets.secret_key_base, true, algorithm: 'HS256')
+        decoded = JWT.decode(header, "secret", true, algorithm: 'HS256')
         @current_user_id = decoded[0]['user_id']
         @current_user = User.find(@current_user_id)
       rescue JWT::DecodeError
