@@ -90,7 +90,6 @@ h2 {
   float: none;
   height: 590px;
   border-radius: 5px;
-  overflow-y: scroll;
 }
 .detail {
   background-color: rgba(115, 112, 112, 0.254);
@@ -107,6 +106,7 @@ h2 {
 .mainlist {
   height: 530px;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 .listhead {
   position: fixed;
