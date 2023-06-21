@@ -3,7 +3,11 @@
 ## Task Management app
 This is a simple web application that allows users to manage their tasks effectively. With this application, users can create new tasks, mark them as complete, and delete tasks when they are no longer needed.
 
-
+## Sample login
+```
+Email: kelvin@gmail.com
+Password: 1234
+```
 ## Built With
 This application has been built with the following application.
 
@@ -12,6 +16,12 @@ This application has been built with the following application.
 - **React `v17.0`**
 - **Sqlite `v3`**
 - **Ruby on rails `v2.7.4`**
+
+## Entity Relationship Diagram(ERD)
+This ERD is here to demonstrate the relationship between the model entities.
+
+<img src="/bddiagram.png" width="1000">
+
 
 ## Features
 <b>Task Creation:</b> Users can easily create new tasks by providing a title and description for each task.
@@ -26,6 +36,11 @@ This application has been built with the following application.
 **`Front-End:`** HTML, CSS, JavaScript,bootstrap, React
 
 **`Back-End:`** Ruby on Rails
+
+**`Backendlink:`**
+```
+https://task-management-wm42.onrender.com
+```
 
 **`Database:`** Sqlite3
 
