@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
 
   def me
-user = @current_user
+    user = @current_user
     render json: user
   end
   
