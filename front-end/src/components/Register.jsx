@@ -11,7 +11,7 @@ function Register({setToken}) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:3000/users/register`, {
+      const response = await axios.post(`https://task-management-wm42.onrender.com/users/register`, {
         username,
         email,
         password,

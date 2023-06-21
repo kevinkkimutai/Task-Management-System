@@ -15,7 +15,7 @@ function App() {
   const [user, setUser] = useState([]);
   const fetchUser = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/users/me`, {
+      const response = await axios.get(`https://task-management-wm42.onrender.com/users/me`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

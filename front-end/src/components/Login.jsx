@@ -9,7 +9,7 @@ function Login({setToken}) {
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        const response = await axios.post(`http://localhost:3000/users/login`, {
+        const response = await axios.post(`https://task-management-wm42.onrender.com/users/login`, {
           email,
           password,
         });
@@ -17,7 +17,10 @@ function Login({setToken}) {
         setToken(response.data.token);
         
       } catch (error) {
-        console.error(error);
+        if (error.response && error.response.data && error.response.data.error) {
+          // Display the error message to the user
+          window.alert(error.response.data.error);
+        }
       }
     };
   return (
@@ -35,7 +38,7 @@ function Login({setToken}) {
                         onSubmit={handleSubmit}
                         className="section text-center"
                       >
-                        <h4 className="mb-4 pb-3">Log In</h4>
+                        <h4 className="mb-4 pb-3 loghead">Log In</h4>
                         <div className="form-group">
                           <input
                             type="email"

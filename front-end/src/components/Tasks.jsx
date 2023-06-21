@@ -11,7 +11,7 @@ function Tasks({ token, user }) {
   // Fetch tasks from the server
   const fetchTasks = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/users/${user.id}/tasks`, {
+      const response = await axios.get(`https://task-management-wm42.onrender.com/users/${user.id}/tasks`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +30,7 @@ function Tasks({ token, user }) {
 
       // Make an API call to update the task status using axios or your preferred HTTP library
       await axios.put(
-        `http://localhost:3000/task/${taskId}`,
+        `https://task-management-wm42.onrender.com/task/${taskId}`,
         { status: newStatus },
         {
           headers: {
@@ -65,7 +65,7 @@ function Tasks({ token, user }) {
   // Update a task
   const updateTask = async () => {
     try {
-      const response = await axios.put(`http://localhost:3000/task/${editTaskData.id}`, editTaskData, {
+      const response = await axios.put(`https://task-management-wm42.onrender.com/task/${editTaskData.id}`, editTaskData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -85,7 +85,7 @@ function Tasks({ token, user }) {
   const deleteTask = async (taskId) => {
     try {
       // Make an API call to delete the task using axios or your preferred HTTP library
-      await axios.delete(`http://localhost:3000/task/${taskId}`, {
+      await axios.delete(`https://task-management-wm42.onrender.com/task/${taskId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -135,11 +135,11 @@ function Tasks({ token, user }) {
         <h5>Due Today Tasks</h5>
       </div>
      <div className='list'>
-     <ol class="lit">
+     <ol className="lit">
      {dueTodayTasks.map((task) => (
                   <li key={task.id} className={`lss ${task.status === 'COMPLETED' ? 'done-list' : ''}`}>
                     {task.name}
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" type="button" onClick={() => deleteTask(task.id)} class="bi bi-trash trash me-3" viewBox="0 0 16 16">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" type="button" onClick={() => deleteTask(task.id)} className="bi bi-trash trash me-3" viewBox="0 0 16 16">
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
   <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
 </svg>
@@ -154,10 +154,10 @@ function Tasks({ token, user }) {
         <h5>On Track Tasks</h5>
       </div>
      <div className='list'>
-     <ol class="lit">
+     <ol className="lit">
      {notDueTodayTasks.map((task) => (
                   <li key={task.id} className={`lss ${task.status === 'COMPLETED' ? 'done-list' : ''}`}>{task.name}
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" type="button" onClick={() => deleteTask(task.id)} class="bi bi-trash trash me-3" viewBox="0 0 16 16">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" type="button" onClick={() => deleteTask(task.id)} className="bi bi-trash trash me-3" viewBox="0 0 16 16">
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
   <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
 </svg>
@@ -176,7 +176,7 @@ function Tasks({ token, user }) {
                 {pastDueTasks.map((task) => (
                   <li key={task.id} className={`lss ${task.status === 'COMPLETED' ? 'done-list' : ''}`}>
                     {task.name}
-                    <svg xmlns="http://www.w3.org/2000/svg"type="button" onClick={() => deleteTask(task.id)} width="16" height="15" fill="currentColor" class="bi bi-trash3-fill trash me-3" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg"type="button" onClick={() => deleteTask(task.id)} width="16" height="15" fill="currentColor" className="bi bi-trash3-fill trash me-3" viewBox="0 0 16 16">
   <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
 </svg>
                   </li>
