@@ -4,7 +4,7 @@ class Task < ApplicationRecord
   enum :status, [ :INCOMPLETE, :COMPLETED ]
 
   validates :name, {
-    length: { minimum: 5, maximum: 30 },
+    length: { minimum: 5, maximum: 23 },
     presence: true
   }
 
