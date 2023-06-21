@@ -96,14 +96,85 @@ function Tasks({ token, user }) {
     }
   };
 
+  const dueTodayTasks = tasks.filter((task) => {
+    const dueDate = new Date(task.due_date);
+    const today = new Date();
+    return dueDate.toDateString() === today.toDateString();
+  });
+
+  const notDueTodayTasks = tasks.filter((task) => {
+    const dueDate = new Date(task.due_date);
+    const today = new Date();
+    return dueDate.toDateString() !== today.toDateString();
+  });
+
+  const today = new Date().toISOString().split('T')[0];
+
+  // Filter tasks for "Past Due" section (excluding today)
+  const pastDueTasks = tasks.filter((task) => {
+    const dueDate = new Date(task.due_date);
+    return dueDate < new Date(today) && task.status !== 'COMPLETED';
+  });
+  
+
   return (
     <div className="container p-2 pt-2">
+      <div className="row">
+    <div className="col side">
+    <div className="heading sidehead">
+        <h2>Tasks</h2>
+      </div>
+      <div className="detail">
       <div className="heading">
+        <h5>Due Today Tasks</h5>
+      </div>
+     <div className='list'>
+     <ol class="lit">
+     {dueTodayTasks.map((task) => (
+                  <li key={task.id} className={`lss ${task.status === 'COMPLETED' ? 'done-list' : ''}`}>
+                    {task.name}
+                  </li>
+                ))}
+</ol>
+     </div>
+      </div>
+
+      <div className="detail">
+      <div className="heading">
+        <h5>On Track Tasks</h5>
+      </div>
+     <div className='list'>
+     <ol class="lit">
+     {notDueTodayTasks.map((task) => (
+                  <li key={task.id} className={`lss ${task.status === 'COMPLETED' ? 'done-list' : ''}`}>{task.name}</li>
+                ))}
+</ol>
+     </div>
+      </div>
+
+      <div className="detail">
+            <div className="heading">
+              <h5>Past Due tasks</h5>
+            </div>
+            <div className="list">
+              <ol className="lit">
+                {pastDueTasks.map((task) => (
+                  <li key={task.id} className={`lss ${task.status === 'COMPLETED' ? 'done-list' : ''}`}>
+                    {task.name}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+
+    </div>
+    <div className="col-9 mainlist">
+    <div className="heading listhead">
         <h2>List of all Tasks</h2>
       </div>
 
-      <div className="container text-center">
-        <div className="row row-cols-2 row-cols-sm-4">
+      <div className="container text-center pt-5">
+        <div className="row row-cols-2 row-cols-sm-3">
           {tasks.map((task) => (
             <div className="col-sm" key={task.id}>
               <div className="p-1">
@@ -186,6 +257,9 @@ function Tasks({ token, user }) {
           </Button>
         </Modal.Footer>
       </Modal>
+    </div>
+  </div>
+      
     </div>
   );
 }

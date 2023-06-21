@@ -84,3 +84,37 @@ h2 {
   text-decoration: underline;
   color: rgb(23, 15, 247);
 }
+.side {
+  align-items: start;
+  padding-top: 30px;
+  float: none;
+  height: 560px;
+  border-radius: 5px;
+}
+.detail {
+  background-color: rgba(115, 112, 112, 0.254);
+  border-radius: 5px;
+
+}
+.list {
+  text-align: start;
+}
+.done-list {
+  text-decoration: line-through;
+  color: brown;
+}
+.mainlist {
+  height: 500px;
+  overflow: scroll;
+}
+.listhead {
+  position: fixed;
+  height: 38px;
+  width: 63%;
+  z-index: 1;
+  background-color: rgb(115, 112, 112);
+}
+.sidehead {
+  background-color: rgb(115, 112, 112);
+  
+}
