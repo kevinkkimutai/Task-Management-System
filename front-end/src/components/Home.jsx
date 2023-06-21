@@ -5,8 +5,8 @@ function Home() {
     <div className='container pt-3 text-center'>
       <div className="row justify-content-evenly">
       <div className="col-5">
-      Learn how to modify columns with a handful of options for alignment, ordering, and offsetting thanks to our flexbox grid system.
-      Plus, see how to use column classes to manage widths of non-grid elements.
+      This is a simple web application created using reactjs and bootstrap that allows users to manage their tasks effectively. With this application, users can create new tasks, mark them as complete,
+       and delete tasks when they are no longer needed.
     </div>
     <div className="col-5">
     <img className="img-fluid" src={task} alt="profile" />
